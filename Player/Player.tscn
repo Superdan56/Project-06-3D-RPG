@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Assets/skin.material" type="Material" id=1]
-[ext_resource path="res://Assets/skaterFemaleA.png" type="Texture" id=2]
+[ext_resource path="res://Assets/People/skin.material" type="Material" id=1]
+[ext_resource path="res://Assets/People/skaterFemaleA.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
