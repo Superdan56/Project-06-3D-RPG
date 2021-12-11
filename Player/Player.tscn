@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/People/skin.material" type="Material" id=1]
 [ext_resource path="res://Assets/People/skaterFemaleA.png" type="Texture" id=2]
@@ -4634,19 +4634,31 @@ animation = "Idle"
 
 [sub_resource type="AnimationNodeBlend2" id=20]
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "Shoot"
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "Run"
 
-[sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( 0, 184.553 )
+[sub_resource type="AnimationNodeAdd2" id=26]
+
+[sub_resource type="AnimationNodeBlendTree" id=23]
+graph_offset = Vector2( -1390, -213.444 )
+nodes/Idle/node = SubResource( 19 )
+nodes/Idle/position = Vector2( 130, 70 )
+nodes/Run/node = SubResource( 25 )
+nodes/Run/position = Vector2( 130, 220 )
+nodes/Run_walk/node = SubResource( 26 )
+nodes/Run_walk/position = Vector2( 410, 100 )
+nodes/output/position = Vector2( 750, 90 )
+
+[sub_resource type="AnimationNodeBlendTree" id=27]
+graph_offset = Vector2( 0, -63.9294 )
 nodes/Idle/node = SubResource( 19 )
 nodes/Idle/position = Vector2( 130, 70 )
 nodes/Idle_Run/node = SubResource( 20 )
 nodes/Idle_Run/position = Vector2( 470, 100 )
-nodes/Run/node = SubResource( 21 )
+nodes/Run/node = SubResource( 24 )
 nodes/Run/position = Vector2( 130, 210 )
 nodes/Shoot/node = SubResource( 23 )
 nodes/Shoot/position = Vector2( 460, 300 )
@@ -4911,10 +4923,11 @@ anims/Shoot = SubResource( 17 )
 anims/Walk = SubResource( 18 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 27 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle_Run/blend_amount = 0.0
+parameters/Shoot/Run_walk/add_amount = 0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965926, 0.258819, -8.74228e-08, 0.258819, -0.965926, 0, 4, -2 )
